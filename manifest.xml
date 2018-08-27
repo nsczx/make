@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.7,1.0">
+	<application setting="false">
+		<name><![CDATA[夕阳秀]]></name>
+		<identifie><![CDATA[make_xyx]]></identifie>
+		<version><![CDATA[1.0.0]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[夕阳秀]]></ability>
+		<description><![CDATA[夕阳秀]]></description>
+		<author><![CDATA[nj]]></author>
+		<url><![CDATA[]]></url>
+	</application>
+	<platform>
+		<supports>
+			<item type="app" />
+		</supports>
+	</platform>
+	<bindings>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>
