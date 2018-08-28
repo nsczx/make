@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:99:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\lst.html";i:1535354339;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535334561;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535339528;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535347855;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535339715;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:99:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\lst.html";i:1535451657;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535334561;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535446712;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535347855;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,7 @@
     <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/lib/jquery/jquery.min.js"></script>
     <script src="/we7/addons/make_xyx/core/public/static/index/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/js/xadmin.js"></script>
-    <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/js/common.js"></script>
-
+    <script src="/we7/addons/make_xyx/core/public/static/index/js/common.js" charset="utf-8"></script>
 </head>
 <body class="layui-layout-body">
 <div class="container">
@@ -182,15 +181,15 @@
 <div class="x-body">
     <div class="layui-row">
         <form class="layui-form layui-col-md12 x-so">
-            <input class="layui-input" placeholder="开始日" name="start" id="start">
-            <input class="layui-input" placeholder="截止日" name="end" id="end">
+            <input class="layui-input" placeholder="开始日" name="start" id="start" autocomplete="off">
+            <input class="layui-input" placeholder="截止日" name="end" id="end" autocomplete="off">
             <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
             <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
         </form>
     </div>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','<?php echo tp_url('user/add'); ?>')"><i class="layui-icon"></i>添加</button>
+
         <span class="x-right" style="line-height:40px">用户数：<?php echo $count; ?>位</span>
     </xblock>
     <table class="layui-table">
@@ -201,9 +200,9 @@
             </th>
             <th>ID</th>
             <th>用户名</th>
-            <th>手机</th>
-            <th>真实姓名</th>
             <th>等级</th>
+            <th>手机</th>
+            <th>注册时间</th>
             <th>会员到期时间</th>
             <th>状态</th>
             <th>操作</th>
@@ -212,24 +211,23 @@
         <?php foreach($res as $v): ?>
         <tr>
             <td>
-                <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+                <div id="userid" class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id=<?php echo $v['id']; ?>><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td><?php echo $v['id']; ?></td>
-            <td><?php echo $v['user_name']; ?></td>
-            <td><?php echo $v['phone']; ?></td>
-            <td><?php echo $v['name']; ?></td>
+            <td><?php echo $v['nick_name']; ?></td>
             <td><?php echo $v['grade']==1?'普通' : '会员'; ?></td>
-            <td><?php echo date("Y-m-d H-i",$v['due_time']); ?></td>
-            <td class="td-status">
-                <span class="layui-btn layui-btn-normal layui-btn-mini">正常</span></td>
+            <td><?php echo $v['phone']; ?></td>
+            <td><?php echo date("Y-m-d H-i",$v['create_time']); ?></td>
+            <td><?php if(!(empty($v['end_time']) || (($v['end_time'] instanceof \think\Collection || $v['end_time'] instanceof \think\Paginator ) && $v['end_time']->isEmpty()))): ?><?php echo date("Y-m-d H-i",$v['end_time']); endif; ?></td>
+            <td class="td-status"><?php echo status($v['status']); ?></td>
             <td class="td-manage">
-                <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
+                <a onclick="member_change(this,<?php echo $v['id']; ?>,<?php echo $v['status']; ?>)" href="javascript:;"  title="点击更改状态">
                     <i class="layui-icon">&#xe601;</i>
                 </a>
                 <a title="编辑"  onclick="x_admin_show('编辑','<?php echo tp_url('user/edit',['id'=>$v['id']]); ?>','800','500')" href="javascript:;">
                     <i class="layui-icon">&#xe642;</i>
                 </a>
-                <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                <a title="删除" onclick="member_del(this,<?php echo $v['id']; ?>)" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>
                 </a>
             </td>
@@ -242,16 +240,128 @@
     </div>
 </div>
 
+<script>
+    /*用户-删除*/
+    function member_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            $.ajax({
+                url: "<?php echo tp_url('user/del_user'); ?>",
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(res){
+                    if(res.code == 1){
+                        $(obj).parents("tr").remove();
+                        layer.msg('已删除!',{icon:1,time:1000});
+                        return;
+                    }else{
+                        layer.msg('删除失败!',{icon:1,time:1000});
+                    }
+                    return false;
+                },
+                error:function(){
+                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+                }
+            })
+        });
+    }
+
+    /*更改用户状态*/
+    function member_change(obj,id,status){
+
+            layer.confirm('确认要修改用户状态吗？',function(index){
+                var condition = $(obj).parents("tr").find(".td-status").find('span').text();
+                if(condition =='正常'){
+                    $.ajax({
+                        url: "<?php echo tp_url('user/change_status'); ?>",
+                        data:{
+                            id:id,
+                            status:status
+                        },
+                        dataType:'json',
+                        success:function(res){
+                            if(res.code == 1){
+                                $(obj).attr('title','点击启用')
+                                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-warm').html('禁用');
+                                layer.msg('已禁用!',{icon: 5,time:1000});
+                                return;
+                            }else{
+                                layer.msg('更改失败!',{icon:1,time:1000});
+                            }
+                            return false;
+                        },
+                        error:function(){
+                            layer.msg('请求服务器失败!',{icon:1,time:1000});
+                        }
+                    })
+
+                }else {
+                    $.ajax({
+                        url: "<?php echo tp_url('user/change_status'); ?>",
+                        data:{
+                            id:id,
+                            status:status
+                        },
+                        dataType:'json',
+                        success:function(res){
+                            if(res.code == 1){
+                                $(obj).attr('title', '点击禁用');
+                                $(obj).parents("tr").find(".td-status").find('span')
+                                    .removeClass('layui-btn-warm')
+                                    .addClass('layui-btn-normal')
+                                    .html('正常');
+                                layer.msg('已启用!',{icon: 1,time:1000});
+                                return;
+                            }else{
+                                layer.msg('更改失败!',{icon:1,time:1000});
+                            }
+                            return false;
+                        },
+                        error:function(){
+                            layer.msg('请求服务器失败!',{icon:1,time:1000});
+                        }
+                    })
+                }
+            });
+    }
+
+    function delAll (argument) {
+
+        var data = tableCheck.getData();
+        var len = data.length;
+
+        layer.confirm('确认要删除所选的'+len+'位用户吗？',function(index){
+            $.ajax({
+                url: "<?php echo tp_url('user/delAll'); ?>",
+                data:{
+                    id:data
+                },
+                dataType:'json',
+                success:function(res){
+                    if(res.code == 1){
+                        layer.msg('删除成功', {icon: 1});
+                        $(".layui-form-checked").not('.header').parents('tr').remove();
+                        return;
+                    }else{
+                        layer.msg('删除失败!',{icon:1,time:1000});
+                    }
+                    return false;
+                },
+                error:function(){
+                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+                }
+            })
+        });
+    }
+
+</script>
+
                 </div>
             </div>
         </div>
     </div>
     <div class="page-content-bg"></div>
 
-
-
-<script>
-
-</script>
 </body>
 </html>
