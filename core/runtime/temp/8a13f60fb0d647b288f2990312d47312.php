@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:99:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\lst.html";i:1535533324;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535534679;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:104:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\del_list.html";i:1535536488;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535536844;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?php echo tp_url('user/club_card'); ?>">
+                        <a href="<?php echo tp_url('clubcard/index'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>会员卡管理</cite>
                         </a>
@@ -161,8 +161,7 @@
     </div>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-
-        <span class="x-right" style="line-height:40px">用户数：<?php echo $count; ?>位</span>
+        <button class="layui-btn " onclick="restore()"><i class="layui-icon">&#xe666;</i>批量还原</button>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -190,23 +189,20 @@
             <td><?php echo $v['img_url']; ?></td>
             <td>
                 <span <?php if($v['grade'] == 2): ?>class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger"<?php endif; ?>>
-                    <?php echo $v['grade']==1?'普通' : '会员'; ?>
+                <?php echo $v['grade']==1?'普通' : '会员'; ?>
                 </span>
             </td>
             <td><?php echo $v['phone']; ?></td>
             <td><?php if(!(empty($v['end_time']) || (($v['end_time'] instanceof \think\Collection || $v['end_time'] instanceof \think\Paginator ) && $v['end_time']->isEmpty()))): ?><?php echo date("Y-m-d H-i",$v['end_time']); endif; ?></td>
             <td class="td-status"><?php echo status($v['status']); ?></td>
             <td class="td-manage">
-                <a onclick="member_change(this,<?php echo $v['id']; ?>,<?php echo $v['status']; ?>)" href="javascript:;"  title="点击更改状态">
-                    <i class="layui-icon">&#xe601;</i>
-                </a>
                 <a  onclick="x_admin_show('详情资料','<?php echo tp_url('user/datum',['id'=>$v['id']]); ?>','800','500')" href="javascript:;"  title="用户详情">
                     <i class="layui-icon">&#xe770;</i>
                 </a>
-                <a title="编辑"  onclick="x_admin_show('编辑','<?php echo tp_url('user/edit',['id'=>$v['id']]); ?>','800','500')" href="javascript:;">
-                    <i class="layui-icon">&#xe642;</i>
+                <a title="还原" onclick="restore_one(this,<?php echo $v['id']; ?>)" href="javascript:;">
+                    <i class="layui-icon">&#xe666;</i>
                 </a>
-                <a title="删除" onclick="member_del(this,<?php echo $v['id']; ?>)" href="javascript:;">
+                <a title="删除" onclick="del_one(this,<?php echo $v['id']; ?>)" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>
                 </a>
             </td>
@@ -220,11 +216,36 @@
 </div>
 
 <script>
-    /*用户-删除*/
-    function member_del(obj,id){
-        layer.confirm('确认要删除吗？',function(index){
+
+    function restore_one(obj,id){
+        layer.confirm('是否恢复？',function(index){
             $.ajax({
-                url: "<?php echo tp_url('user/del_user'); ?>",
+                url: "<?php echo tp_url('user/restore_user'); ?>",
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(res){
+                    if(res.code == 1){
+                        $(obj).parents("tr").remove();
+                        layer.msg('已恢复!',{icon:1,time:1000});
+                        return;
+                    }else{
+                        layer.msg('恢复失败!',{icon:1,time:1000});
+                    }
+                    return false;
+                },
+                error:function(){
+                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+                }
+            })
+        });
+    }
+
+    function del_one(obj,id){
+        layer.confirm('是否删除？',function(index){
+            $.ajax({
+                url: "<?php echo tp_url('user/delAll'); ?>",
                 data:{
                     id:id
                 },
@@ -246,73 +267,14 @@
         });
     }
 
-    /*更改用户状态*/
-    function member_change(obj,id,status){
-
-            layer.confirm('确认要修改用户状态吗？',function(index){
-                var condition = $(obj).parents("tr").find(".td-status").find('span').text();
-                if(condition =='正常'){
-                    $.ajax({
-                        url: "<?php echo tp_url('user/change_status'); ?>",
-                        data:{
-                            id:id,
-                            status:status
-                        },
-                        dataType:'json',
-                        success:function(res){
-                            if(res.code == 1){
-                                $(obj).attr('title','点击启用')
-                                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-warm').html('禁用');
-                                layer.msg('已禁用!',{icon: 5,time:1000});
-                                return;
-                            }else{
-                                layer.msg('更改失败!',{icon:1,time:1000});
-                            }
-                            return false;
-                        },
-                        error:function(){
-                            layer.msg('请求服务器失败!',{icon:1,time:1000});
-                        }
-                    })
-
-                }else {
-                    $.ajax({
-                        url: "<?php echo tp_url('user/change_status'); ?>",
-                        data:{
-                            id:id,
-                            status:status
-                        },
-                        dataType:'json',
-                        success:function(res){
-                            if(res.code == 1){
-                                $(obj).attr('title', '点击禁用');
-                                $(obj).parents("tr").find(".td-status").find('span')
-                                    .removeClass('layui-btn layui-btn-radius layui-btn-warm')
-                                    .addClass('layui-btn layui-btn-radius')
-                                    .html('正常');
-                                layer.msg('已启用!',{icon: 1,time:1000});
-                                return;
-                            }else{
-                                layer.msg('更改失败!',{icon:1,time:1000});
-                            }
-                            return false;
-                        },
-                        error:function(){
-                            layer.msg('请求服务器失败!',{icon:1,time:1000});
-                        }
-                    })
-                }
-            });
-    }
-
     function delAll (argument) {
 
         var data = tableCheck.getData();
         var len = data.length;
 
-        layer.confirm('确认要删除所选的'+len+'位用户吗？',function(index){
+        layer.confirm('确认要永久删除所选的'+len+'位用户吗？',function(index){
             $.ajax({
-                url: "<?php echo tp_url('user/del_user'); ?>",
+                url: "<?php echo tp_url('user/delAll'); ?>",
                 data:{
                     id:data
                 },
@@ -324,6 +286,36 @@
                         return;
                     }else{
                         layer.msg('删除失败!',{icon:1,time:1000});
+                    }
+                    return false;
+                },
+                error:function(){
+                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+                }
+            })
+        });
+    }
+
+    function restore (argument) {
+
+        var data = tableCheck.getData();
+        if(data.length < 1) {
+            return;
+        }
+        layer.confirm('是否恢复？',function(index){
+            $.ajax({
+                url: "<?php echo tp_url('user/restore_user'); ?>",
+                data:{
+                    id:data
+                },
+                dataType:'json',
+                success:function(res){
+                    if(res.code == 1){
+                        layer.msg('恢复成功', {icon: 1});
+                        $(".layui-form-checked").not('.header').parents('tr').remove();
+                        return;
+                    }else{
+                        layer.msg('恢复失败!',{icon:1,time:1000});
                     }
                     return false;
                 },

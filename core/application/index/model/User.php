@@ -48,9 +48,8 @@ class User extends Model
         $key = [
             'id' => $data['id'],
         ];
-        $res = $this->save(['status'=>$data['status']],$key);
-
-        if($res > 0){
+        $res = $this->update(['status'=>$data['status']],$key);
+        if($res){
             return json(['code'=>1,'msg'=>'success']);
         }else{
             return json(['code'=>0,'msg'=>'error']);
@@ -72,7 +71,60 @@ class User extends Model
             }
 
         }
-
         return false;
+    }
+
+    /**将用户状态批量修改为删除**/
+    public function changeAll($ids){
+        if( is_array($ids) ){
+            foreach ($ids as $k=>$v){
+                $id = $v;
+            }
+
+            if(count($id) > 1){
+                $ids = implode(',',$id);
+            }else{
+                $ids = $id;
+            }
+
+        }
+
+        $where = [
+            'id' =>['in',$ids]
+        ];
+        $res = $this->where($where)->update(['status'=>2]);
+
+        if($res>0){
+            return json(['code'=>1,'msg'=>'success']);
+        }else{
+            return json(['code'=>0,'msg'=>'error']);
+        }
+    }
+
+    /**恢复删除用户**/
+    public function do_restore($ids){
+        if( is_array($ids) ){
+            foreach ($ids as $k=>$v){
+                $id = $v;
+            }
+
+            if(count($id) > 1){
+                $ids = implode(',',$id);
+            }else{
+                $ids = $id;
+            }
+
+        }
+
+        $where = [
+            'id' =>['in',$ids]
+        ];
+        $res = $this->where($where)->update(['status'=>1]);
+
+        if($res>0){
+            return json(['code'=>1,'msg'=>'success']);
+        }else{
+            return json(['code'=>0,'msg'=>'error']);
+        }
     }
 }

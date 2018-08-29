@@ -21,16 +21,13 @@ class User  extends Base
             'count'=>$count,
         ]);
     }
-    /**将用户状态修改为删除**/
+
+    /**将用户状态批量修改为删除**/
     public function del_user(Request $request){
         if($request->isAjax()){
-            $id = $request->param('id');
-            $res = $this->model->save(['status'=>2],['id'=>$id]);
-            if($res>0){
-                return json(['code'=>1,'msg'=>'success']);
-            }else{
-                return json(['code'=>0,'msg'=>'error']);
-            }
+            $ids = $request->param();
+            $res = $this->model->changeAll($ids);
+            return $res;
         }
         return $this->fetch();
     }
@@ -58,7 +55,7 @@ class User  extends Base
         ]);
     }
 
-    /**批量删除用户**/
+    /**批量永久删除用户**/
     public function delAll(Request $request){
         if( $request->isAjax()){
             $data = $request->param();
@@ -66,4 +63,37 @@ class User  extends Base
             return $res;
         }
     }
+
+    /**用户详情页**/
+    public function datum(Request $request){
+
+            $id = $request->param('id');
+
+            $res  = Db::name('user')
+                ->find($id);
+            return $this->fetch('datum',[
+                're'=>$res,
+            ]);
+    }
+
+    /**会员删除列表**/
+    public function del_list(){
+        $res = Db::name('user')
+            ->where('status','=',2)
+            ->paginate(10);
+
+        return $this->fetch('',[
+            'res'=>$res,
+        ]);
+    }
+
+    /**恢复删除用户**/
+    public function restore_user(Request $request){
+        if( $request->isAjax()){
+            $data = $request->param();
+            $res = $this->model->do_restore($data);
+            return $res;
+        }
+    }
+
 }

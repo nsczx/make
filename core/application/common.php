@@ -14,10 +14,10 @@
 function status($status){
     switch ($status){
         case 1:
-            return '<span class="layui-btn layui-btn-normal layui-btn-mini">正常</span>';
+            return '<span class="layui-btn layui-btn-radius">正常</span>';
         case 2:
-            return '<span class="layui-btn layui-btn-danger layui-btn-mini">删除</span>';
+            return '<span class="layui-btn layui-btn-radius layui-btn-normal">删除</span>';
         case 3:
-            return '<span class="layui-btn layui-btn-warm  layui-btn-mini">禁用</span>';
+            return '<span class="layui-btn layui-btn-radius layui-btn-warm">禁用</span>';
     }
 }

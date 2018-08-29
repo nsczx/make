@@ -39,7 +39,7 @@
             <td>{$v.img_url}</td>
             <td>
                 <span {if $v.grade == 2}class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger"{/if}>
-                    {$v.grade == 1 ? '普通' : '会员'}
+                {$v.grade == 1 ? '普通' : '会员'}
                 </span>
             </td>
             <td>{$v.phone}</td>
@@ -98,60 +98,60 @@
     /*更改用户状态*/
     function member_change(obj,id,status){
 
-            layer.confirm('确认要修改用户状态吗？',function(index){
-                var condition = $(obj).parents("tr").find(".td-status").find('span').text();
-                if(condition =='正常'){
-                    $.ajax({
-                        url: "{:tp_url('user/change_status')}",
-                        data:{
-                            id:id,
-                            status:status
-                        },
-                        dataType:'json',
-                        success:function(res){
-                            if(res.code == 1){
-                                $(obj).attr('title','点击启用')
-                                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-warm').html('禁用');
-                                layer.msg('已禁用!',{icon: 5,time:1000});
-                                return;
-                            }else{
-                                layer.msg('更改失败!',{icon:1,time:1000});
-                            }
-                            return false;
-                        },
-                        error:function(){
-                            layer.msg('请求服务器失败!',{icon:1,time:1000});
+        layer.confirm('确认要修改用户状态吗？',function(index){
+            var condition = $(obj).parents("tr").find(".td-status").find('span').text();
+            if(condition =='正常'){
+                $.ajax({
+                    url: "{:tp_url('user/change_status')}",
+                    data:{
+                        id:id,
+                        status:status
+                    },
+                    dataType:'json',
+                    success:function(res){
+                        if(res.code == 1){
+                            $(obj).attr('title','点击启用')
+                            $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-warm').html('禁用');
+                            layer.msg('已禁用!',{icon: 5,time:1000});
+                            return;
+                        }else{
+                            layer.msg('更改失败!',{icon:1,time:1000});
                         }
-                    })
+                        return false;
+                    },
+                    error:function(){
+                        layer.msg('请求服务器失败!',{icon:1,time:1000});
+                    }
+                })
 
-                }else {
-                    $.ajax({
-                        url: "{:tp_url('user/change_status')}",
-                        data:{
-                            id:id,
-                            status:status
-                        },
-                        dataType:'json',
-                        success:function(res){
-                            if(res.code == 1){
-                                $(obj).attr('title', '点击禁用');
-                                $(obj).parents("tr").find(".td-status").find('span')
-                                    .removeClass('layui-btn layui-btn-radius layui-btn-warm')
-                                    .addClass('layui-btn layui-btn-radius')
-                                    .html('正常');
-                                layer.msg('已启用!',{icon: 1,time:1000});
-                                return;
-                            }else{
-                                layer.msg('更改失败!',{icon:1,time:1000});
-                            }
-                            return false;
-                        },
-                        error:function(){
-                            layer.msg('请求服务器失败!',{icon:1,time:1000});
+            }else {
+                $.ajax({
+                    url: "{:tp_url('user/change_status')}",
+                    data:{
+                        id:id,
+                        status:status
+                    },
+                    dataType:'json',
+                    success:function(res){
+                        if(res.code == 1){
+                            $(obj).attr('title', '点击禁用');
+                            $(obj).parents("tr").find(".td-status").find('span')
+                                .removeClass('layui-btn layui-btn-radius layui-btn-warm')
+                                .addClass('layui-btn layui-btn-radius')
+                                .html('正常');
+                            layer.msg('已启用!',{icon: 1,time:1000});
+                            return;
+                        }else{
+                            layer.msg('更改失败!',{icon:1,time:1000});
                         }
-                    })
-                }
-            });
+                        return false;
+                    },
+                    error:function(){
+                        layer.msg('请求服务器失败!',{icon:1,time:1000});
+                    }
+                })
+            }
+        });
     }
 
     function delAll (argument) {
