@@ -55,7 +55,7 @@ class User  extends Base
         ]);
     }
 
-    /**批量永久删除用户**/
+    /**批量删除用户**/
     public function delAll(Request $request){
         if( $request->isAjax()){
             $data = $request->param();

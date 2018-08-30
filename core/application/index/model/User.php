@@ -1,8 +1,8 @@
 <?php
 namespace app\index\model;
-use think\Model;
 
-class User extends Model
+
+class User extends Base
 {
     protected $autoWriteTimestamp = true;
 
@@ -48,7 +48,7 @@ class User extends Model
         $key = [
             'id' => $data['id'],
         ];
-        $res = $this->update(['status'=>$data['status']],$key);
+        $res = $this->allowField(true)->update(['status'=>$data['status']],$key);
         if($res){
             return json(['code'=>1,'msg'=>'success']);
         }else{
@@ -92,7 +92,7 @@ class User extends Model
         $where = [
             'id' =>['in',$ids]
         ];
-        $res = $this->where($where)->update(['status'=>2]);
+        $res = $this->allowField(true)->where($where)->update(['status'=>2]);
 
         if($res>0){
             return json(['code'=>1,'msg'=>'success']);

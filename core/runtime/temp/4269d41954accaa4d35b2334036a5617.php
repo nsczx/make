@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:100:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\edit.html";i:1535433816;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:100:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\edit.html";i:1535612485;}*/ ?>
 
 <!DOCTYPE html>
 <html>
@@ -124,11 +124,9 @@
                             var index = parent.layer.getFrameIndex(window.name);
                             parent.layer.close(index);
                         });
-                        return;
                     }else{
-                        alert('修改失败');
+                        layer.msg('修改失败',{time:1000});
                     }
-                    return false;
                 },
                 error:function(){
                     alert('请求服务器失败');

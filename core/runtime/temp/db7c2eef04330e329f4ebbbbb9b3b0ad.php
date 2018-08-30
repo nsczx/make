@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:104:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\user\del_list.html";i:1535536488;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:111:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\appointment\del_list.html";i:1535623245;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -177,10 +177,11 @@
             </th>
             <th>ID</th>
             <th>用户名</th>
-            <th>头像</th>
-            <th>等级</th>
-            <th>手机</th>
-            <th>会员到期时间</th>
+            <th>联系人</th>
+            <th>联系电话</th>
+            <th>备注</th>
+            <th>出发日期</th>
+            <th>预约时间</th>
             <th>状态</th>
             <th>操作</th>
         </thead>
@@ -191,24 +192,21 @@
                 <div id="userid" class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id=<?php echo $v['id']; ?>><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td><?php echo $v['id']; ?></td>
-            <td><?php echo $v['nick_name']; ?></td>
-            <td><?php echo $v['img_url']; ?></td>
-            <td>
-                <span <?php if($v['grade'] == 2): ?>class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger"<?php endif; ?>>
-                <?php echo $v['grade']==1?'普通' : '会员'; ?>
-                </span>
-            </td>
+            <td>23423</td>
+            <td>刘德华</td>
             <td><?php echo $v['phone']; ?></td>
-            <td><?php if(!(empty($v['end_time']) || (($v['end_time'] instanceof \think\Collection || $v['end_time'] instanceof \think\Paginator ) && $v['end_time']->isEmpty()))): ?><?php echo date("Y-m-d H-i",$v['end_time']); endif; ?></td>
-            <td class="td-status"><?php echo status($v['status']); ?></td>
+            <td><?php echo $v['remark']; ?></td>
+            <td><?php echo date("Y-m-d",$v['depart_time']); ?></td>
+            <td><?php echo date("Y-m-d H:i:s",$v['create_time']); ?></td>
+            <td class="td-status"><?php echo app_status($v['status']); ?></td>
             <td class="td-manage">
-                <a  onclick="x_admin_show('详情资料','<?php echo tp_url('user/datum',['id'=>$v['id']]); ?>','800','500')" href="javascript:;"  title="用户详情">
-                    <i class="layui-icon">&#xe770;</i>
+                <a  onclick="x_admin_show('详情资料','<?php echo tp_url('appointment/datum',['id'=>$v['id']]); ?>','1000','700')" href="javascript:;"  title="详情">
+                    <i class="layui-icon">&#xe63c;</i>
                 </a>
                 <a title="还原" onclick="restore_one(this,<?php echo $v['id']; ?>)" href="javascript:;">
                     <i class="layui-icon">&#xe666;</i>
                 </a>
-                <a title="删除" onclick="del_one(this,<?php echo $v['id']; ?>)" href="javascript:;">
+                <a title="删除" onclick="member_del(this,<?php echo $v['id']; ?>)" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>
                 </a>
             </td>
@@ -223,82 +221,60 @@
 
 <script>
 
-    function restore_one(obj,id){
-        layer.confirm('是否恢复？',function(index){
-            $.ajax({
-                url: "<?php echo tp_url('user/restore_user'); ?>",
-                data:{
-                    id:id
-                },
-                dataType:'json',
-                success:function(res){
-                    if(res.code == 1){
-                        $(obj).parents("tr").remove();
-                        layer.msg('已恢复!',{icon:1,time:1000});
-                        return;
-                    }else{
-                        layer.msg('恢复失败!',{icon:1,time:1000});
-                    }
-                    return false;
-                },
-                error:function(){
-                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+    function member_del(obj,id){
+
+        layer.confirm('确认要删除吗？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
                 }
-            })
+                return;
+            }
+            var data = {id:id}
+            app.ajaxRequest("<?php echo tp_url('appointment/delAll'); ?>",'post',data,'',success);
         });
     }
 
-    function del_one(obj,id){
-        layer.confirm('是否删除？',function(index){
-            $.ajax({
-                url: "<?php echo tp_url('user/delAll'); ?>",
-                data:{
-                    id:id
-                },
-                dataType:'json',
-                success:function(res){
-                    if(res.code == 1){
-                        $(obj).parents("tr").remove();
-                        layer.msg('已删除!',{icon:1,time:1000});
-                        return;
-                    }else{
-                        layer.msg('删除失败!',{icon:1,time:1000});
-                    }
-                    return false;
-                },
-                error:function(){
-                    layer.msg('请求服务器失败!',{icon:1,time:1000});
-                }
-            })
-        });
-    }
 
     function delAll (argument) {
 
         var data = tableCheck.getData();
         var len = data.length;
-
-        layer.confirm('确认要永久删除所选的'+len+'位用户吗？',function(index){
-            $.ajax({
-                url: "<?php echo tp_url('user/delAll'); ?>",
-                data:{
-                    id:data
-                },
-                dataType:'json',
-                success:function(res){
-                    if(res.code == 1){
-                        layer.msg('删除成功', {icon: 1});
-                        $(".layui-form-checked").not('.header').parents('tr').remove();
-                        return;
-                    }else{
-                        layer.msg('删除失败!',{icon:1,time:1000});
-                    }
-                    return false;
-                },
-                error:function(){
-                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+        var data ={id:data};
+        layer.confirm('确认要删除所选的'+len+'位用户吗？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    layer.msg('删除成功', {icon: 1});
+                    $(".layui-form-checked").not('.header').parents('tr').remove();
+                    return;
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
                 }
-            })
+                return false;
+            };
+
+            app.ajaxRequest("<?php echo tp_url('appointment/delAll'); ?>",'get',data,'',success);
+
+        });
+    }
+
+    function restore_one(obj,id){
+        var data = {id:id};
+        layer.confirm('是否恢复？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    $(obj).parents("tr").remove();
+                    layer.msg('已恢复!',{icon:1,time:1000});
+                    return;
+                }else{
+                    layer.msg('恢复失败!',{icon:1,time:1000});
+                }
+                return false;
+            }
+            app.ajaxRequest("<?php echo tp_url('appointment/restore_order'); ?>",'post',data,'',success)
         });
     }
 
@@ -310,7 +286,7 @@
         }
         layer.confirm('是否恢复？',function(index){
             $.ajax({
-                url: "<?php echo tp_url('user/restore_user'); ?>",
+                url: "<?php echo tp_url('appointment/restore_order'); ?>",
                 data:{
                     id:data
                 },

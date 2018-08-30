@@ -10,7 +10,7 @@
     </div>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-
+        <button class="layui-btn " onclick="restore()"><i class="layui-icon">&#xe666;</i>批量还原</button>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -43,14 +43,11 @@
             <td>{$v.create_time|date="Y-m-d H:i:s",###}</td>
             <td class="td-status">{:app_status($v.status)}</td>
             <td class="td-manage">
-                <a onclick="member_change(this,{$v.id},{$v.status})" href="javascript:;"  title="点击更改状态">
-                    <i class="layui-icon">&#xe601;</i>
-                </a>
                 <a  onclick="x_admin_show('详情资料','{:tp_url('appointment/datum',['id'=>$v.id])}','1000','700')" href="javascript:;"  title="详情">
                     <i class="layui-icon">&#xe63c;</i>
                 </a>
-                <a title="编辑"  onclick="x_admin_show('编辑','{:tp_url('appointment/edit',['id'=>$v.id])}','1000','700')" href="javascript:;">
-                    <i class="layui-icon">&#xe642;</i>
+                <a title="还原" onclick="restore_one(this,{$v.id})" href="javascript:;">
+                    <i class="layui-icon">&#xe666;</i>
                 </a>
                 <a title="删除" onclick="member_del(this,{$v.id})" href="javascript:;">
                     <i class="layui-icon">&#xe640;</i>
@@ -66,7 +63,7 @@
 </div>
 
 <script>
-    /*用户-删除*/
+
     function member_del(obj,id){
 
         layer.confirm('确认要删除吗？',function(index){
@@ -80,88 +77,70 @@
                 return;
             }
             var data = {id:id}
-            app.ajaxRequest("{:tp_url('appointment/del_order')}",'post',data,'',success);
+            app.ajaxRequest("{:tp_url('appointment/delAll')}",'post',data,'',success);
         });
     }
 
-    /*更改用户状态*/
-    function member_change(obj,id,status){
-
-        layer.confirm('确认要修改用户状态吗？',function(index){
-            var condition = $(obj).parents("tr").find(".td-status").find('span').text();
-            if(condition =='正常'){
-                $.ajax({
-                    url: "{:tp_url('user/change_status')}",
-                    data:{
-                        id:id,
-                        status:status
-                    },
-                    dataType:'json',
-                    success:function(res){
-                        if(res.code == 1){
-                            $(obj).attr('title','点击启用')
-                            $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-warm').html('禁用');
-                            layer.msg('已禁用!',{icon: 5,time:1000});
-                            return;
-                        }else{
-                            layer.msg('更改失败!',{icon:1,time:1000});
-                        }
-                        return false;
-                    },
-                    error:function(){
-                        layer.msg('请求服务器失败!',{icon:1,time:1000});
-                    }
-                })
-
-            }else {
-                $.ajax({
-                    url: "{:tp_url('user/change_status')}",
-                    data:{
-                        id:id,
-                        status:status
-                    },
-                    dataType:'json',
-                    success:function(res){
-                        if(res.code == 1){
-                            $(obj).attr('title', '点击禁用');
-                            $(obj).parents("tr").find(".td-status").find('span')
-                                .removeClass('layui-btn layui-btn-radius layui-btn-warm')
-                                .addClass('layui-btn layui-btn-radius')
-                                .html('正常');
-                            layer.msg('已启用!',{icon: 1,time:1000});
-                            return;
-                        }else{
-                            layer.msg('更改失败!',{icon:1,time:1000});
-                        }
-                        return false;
-                    },
-                    error:function(){
-                        layer.msg('请求服务器失败!',{icon:1,time:1000});
-                    }
-                })
-            }
-        });
-    }
 
     function delAll (argument) {
 
         var data = tableCheck.getData();
         var len = data.length;
-
+        var data ={id:data};
         layer.confirm('确认要删除所选的'+len+'位用户吗？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    layer.msg('删除成功', {icon: 1});
+                    $(".layui-form-checked").not('.header').parents('tr').remove();
+                    return;
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
+                }
+                return false;
+            };
+
+            app.ajaxRequest("{:tp_url('appointment/delAll')}",'get',data,'',success);
+
+        });
+    }
+
+    function restore_one(obj,id){
+        var data = {id:id};
+        layer.confirm('是否恢复？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    $(obj).parents("tr").remove();
+                    layer.msg('已恢复!',{icon:1,time:1000});
+                    return;
+                }else{
+                    layer.msg('恢复失败!',{icon:1,time:1000});
+                }
+                return false;
+            }
+            app.ajaxRequest("{:tp_url('appointment/restore_order')}",'post',data,'',success)
+        });
+    }
+
+    function restore (argument) {
+
+        var data = tableCheck.getData();
+        if(data.length < 1) {
+            return;
+        }
+        layer.confirm('是否恢复？',function(index){
             $.ajax({
-                url: "{:tp_url('user/del_user')}",
+                url: "{:tp_url('appointment/restore_order')}",
                 data:{
                     id:data
                 },
                 dataType:'json',
                 success:function(res){
                     if(res.code == 1){
-                        layer.msg('删除成功', {icon: 1});
+                        layer.msg('恢复成功', {icon: 1});
                         $(".layui-form-checked").not('.header').parents('tr').remove();
                         return;
                     }else{
-                        layer.msg('删除失败!',{icon:1,time:1000});
+                        layer.msg('恢复失败!',{icon:1,time:1000});
                     }
                     return false;
                 },
