@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:102:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\index\index.html";i:1535301369;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:101:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\scenic\lst.html";i:1535702808;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535702674;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,6 +99,21 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
+                    <cite>景点管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="<?php echo tp_url('scenic/lst'); ?>">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>分类列表</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe723;</i>
                     <cite>轮播图</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
@@ -155,9 +170,48 @@
                         <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
                             <i class="layui-icon" style="line-height:30px">ဂ</i></a>
                     </div>
-                    
+                    <div class="x-body">
+    <xblock>
+    <button class="layui-btn layui-btn-radius" onclick="x_admin_show('添加分类','<?php echo tp_url('scenic/add'); ?>',1000,700)">添加分类</button>
+    </xblock>
+    <table class="layui-table">
+    <thead>
+    <tr>
 
-2342342342
+        <th>ID</th>
+        <th>标题</th>
+        <th>图片</th>
+        <th>添加时间</th>
+        <th>状态</th>
+        <th>操作</th>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>id</td>
+        <td>标题</td>
+        <td><img alt="" width="50px" height="50px" src="https://bpic.588ku.com/illus_water_img/18/08/22/1cb29a2217107caad949763cf111e9fa.jpg!/watermark/url/L3dhdGVyL3dhdGVyX2JhY2tfNDAwXzIwMC5wbmc=/repeat/true" ></td>
+        <td>添加时间</td>
+
+        <td class="td-status">状态</td>
+        <td class="td-manage">
+            <a onclick="member_change(this)" href="javascript:;"  title="点击更改状态">
+                <i class="layui-icon">&#xe601;</i>
+            </a>
+            <a  onclick="x_admin_show('详情','<?php echo tp_url('user/datum'); ?>','800','500')" href="javascript:;"  title="用户详情">
+                <i class="layui-icon">&#xe63c;</i>
+            </a>
+            <a title="编辑"  onclick="x_admin_show('编辑','<?php echo tp_url('user/edit'); ?>','800','500')" href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            <a title="删除" onclick="member_del(this)" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
                 </div>
             </div>
         </div>

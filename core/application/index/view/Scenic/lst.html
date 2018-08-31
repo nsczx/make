@@ -1,0 +1,42 @@
+<div class="x-body">
+    <xblock>
+    <button class="layui-btn layui-btn-radius" onclick="x_admin_show('添加分类','{:tp_url('scenic/add')}',1000,700)">添加分类</button>
+    </xblock>
+    <table class="layui-table">
+    <thead>
+    <tr>
+
+        <th>ID</th>
+        <th>标题</th>
+        <th>图片</th>
+        <th>添加时间</th>
+        <th>状态</th>
+        <th>操作</th>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>id</td>
+        <td>标题</td>
+        <td><img alt="" width="50px" height="50px" src="https://bpic.588ku.com/illus_water_img/18/08/22/1cb29a2217107caad949763cf111e9fa.jpg!/watermark/url/L3dhdGVyL3dhdGVyX2JhY2tfNDAwXzIwMC5wbmc=/repeat/true" ></td>
+        <td>添加时间</td>
+
+        <td class="td-status">状态</td>
+        <td class="td-manage">
+            <a onclick="member_change(this)" href="javascript:;"  title="点击更改状态">
+                <i class="layui-icon">&#xe601;</i>
+            </a>
+            <a  onclick="x_admin_show('详情','{:tp_url('user/datum')}','800','500')" href="javascript:;"  title="用户详情">
+                <i class="layui-icon">&#xe63c;</i>
+            </a>
+            <a title="编辑"  onclick="x_admin_show('编辑','{:tp_url('user/edit')}','800','500')" href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            <a title="删除" onclick="member_del(this)" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>

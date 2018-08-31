@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:106:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\appointment\lst.html";i:1535618622;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:106:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\appointment\lst.html";i:1535681261;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -192,8 +192,8 @@
                 <div id="userid" class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id=<?php echo $v['id']; ?>><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td><?php echo $v['id']; ?></td>
-            <td>23423</td>
-            <td>刘德华</td>
+            <td><?php echo $v['userinfo']['nick_name']; ?></td>
+            <td><?php echo $v['attn']; ?></td>
             <td><?php echo $v['phone']; ?></td>
             <td><?php echo $v['remark']; ?></td>
             <td><?php echo date("Y-m-d",$v['depart_time']); ?></td>
@@ -243,89 +243,67 @@
 
     /*更改用户状态*/
     function member_change(obj,id,status){
-
         layer.confirm('确认要修改用户状态吗？',function(index){
             var condition = $(obj).parents("tr").find(".td-status").find('span').text();
-            if(condition =='正常'){
-                $.ajax({
-                    url: "<?php echo tp_url('user/change_status'); ?>",
-                    data:{
-                        id:id,
-                        status:status
-                    },
-                    dataType:'json',
-                    success:function(res){
-                        if(res.code == 1){
-                            $(obj).attr('title','点击启用')
-                            $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-warm').html('禁用');
-                            layer.msg('已禁用!',{icon: 5,time:1000});
-                            return;
-                        }else{
-                            layer.msg('更改失败!',{icon:1,time:1000});
-                        }
-                        return false;
-                    },
-                    error:function(){
-                        layer.msg('请求服务器失败!',{icon:1,time:1000});
+            var data = {
+                id:id,
+                    status:status
+            };
+            if(condition =='未处理'){
+                var success = function(res){
+                    if(res.code == 1){
+                        $(obj).attr('title','点击更改')
+                        $(obj).parents("tr").find(".td-status").find('span')
+                                .removeClass('layui-btn layui-btn-radius layui-btn-normal')
+                                .addClass('layui-btn layui-btn-radius')
+                                .html('已处理');
+                        layer.msg('已更改!',{icon: 1,time:1000});
+                    }else{
+                        layer.msg('更改失败!',{icon:5,time:1000});
                     }
-                })
+                    return false;
+                };
+                app.ajaxRequest("<?php echo tp_url('appointment/change_status'); ?>",'post',data,'',success)
 
             }else {
-                $.ajax({
-                    url: "<?php echo tp_url('user/change_status'); ?>",
-                    data:{
-                        id:id,
-                        status:status
-                    },
-                    dataType:'json',
-                    success:function(res){
-                        if(res.code == 1){
-                            $(obj).attr('title', '点击禁用');
-                            $(obj).parents("tr").find(".td-status").find('span')
-                                .removeClass('layui-btn layui-btn-radius layui-btn-warm')
-                                .addClass('layui-btn layui-btn-radius')
-                                .html('正常');
-                            layer.msg('已启用!',{icon: 1,time:1000});
-                            return;
-                        }else{
-                            layer.msg('更改失败!',{icon:1,time:1000});
-                        }
-                        return false;
-                    },
-                    error:function(){
-                        layer.msg('请求服务器失败!',{icon:1,time:1000});
+                var success = function(res){
+                    if(res.code == 1){
+                        $(obj).attr('title', '点击更改');
+                        $(obj).parents("tr").find(".td-status").find('span')
+                            .removeClass('layui-btn layui-btn-radius')
+                            .addClass('layui-btn layui-btn-radius layui-btn-normal')
+                            .html('未处理');
+                        layer.msg('已更改!',{icon: 1,time:1000});
+                    }else{
+                        layer.msg('更改失败!',{icon:5,time:1000});
                     }
-                })
+                    return false;
+                };
+                app.ajaxRequest("<?php echo tp_url('appointment/change_status'); ?>",'post',data,'',success)
             }
         });
     }
+
 
     function delAll (argument) {
 
         var data = tableCheck.getData();
         var len = data.length;
-
+        var data ={id:data};
         layer.confirm('确认要删除所选的'+len+'位用户吗？',function(index){
-            $.ajax({
-                url: "<?php echo tp_url('user/del_user'); ?>",
-                data:{
-                    id:data
-                },
-                dataType:'json',
-                success:function(res){
-                    if(res.code == 1){
-                        layer.msg('删除成功', {icon: 1});
-                        $(".layui-form-checked").not('.header').parents('tr').remove();
-                        return;
-                    }else{
-                        layer.msg('删除失败!',{icon:1,time:1000});
-                    }
-                    return false;
-                },
-                error:function(){
-                    layer.msg('请求服务器失败!',{icon:1,time:1000});
+            var success = function(res){
+                if(res.code == 1){
+                    layer.msg('删除成功', {icon: 1});
+                    $(".layui-form-checked").not('.header').parents('tr').remove();
+                    return;
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
                 }
-            })
+                return false;
+            };
+
+            app.ajaxRequest("<?php echo tp_url('appointment/del_order'); ?>",'get',data,'',success);
+
         });
     }
 

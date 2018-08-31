@@ -13,4 +13,22 @@ class Base extends Controller
             die;
         }
     }
+
+    public function uploadimage()
+    {
+        // 获取表单上传文件 例如上传了001.jpg
+        $files = request()->file('images');
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        foreach($files as $file){
+            // 移动到框架应用根目录/public/uploads/ 目录下
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if($info){
+                return  message(1,'success','uploads'.DS.$info->getSaveName());
+            }else{
+                return  message(0,'error','uploads'.DS.$info->getSaveName());
+            }
+        }
+
+
+    }
 }

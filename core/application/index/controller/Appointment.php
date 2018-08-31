@@ -46,6 +46,15 @@ class Appointment extends Base
         ]);
     }
 
+    //修改用户状态
+    public function change_status(Request $request){
+        if($request->isAjax()){
+            $data = $request->param();
+            $res = $this->model->do_change($data);
+            return $res;
+        }
+    }
+
     //将状态修改为删除
     public function del_order(Request $request){
         if( $request->isAjax() ){

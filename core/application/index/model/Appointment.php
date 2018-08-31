@@ -17,9 +17,9 @@ class Appointment extends Base
                     ->field('id,nick_name,name,ID_card,appointment_id');
 
     }
-    //获取删除状态列表
+    //获取正常状态列表
     public function do_query(){
-        $where=['status'=>2];
+        $where=['status'=>['neq',2] ];
         $res = $this->with(['userinfo'])
             ->where($where)
             ->paginate(10);
@@ -33,11 +33,32 @@ class Appointment extends Base
             ->toArray();
         return $re;
     }
+
     //更改编辑信息
     public function save_edit($data){
         $data['depart_time'] = strtotime($data['depart_time']);
         $re = $this->allowField(true)->update($data,['id'=>$data['id']]);
         if($re){
+            return message(1,'success','');
+        }else{
+            return message(0,'error','');
+        }
+    }
+
+    //更改用户状态
+    public function do_change($data){
+        if($data['status'] == 0){
+            $data['status'] = 1;
+        }else{
+            $data['status'] = 0;
+        }
+        $key = [
+            'id' => $data['id'],
+        ];
+
+        $res = $this->allowField(true)->update(['status'=>$data['status']],$key);
+
+        if($res){
             return message(1,'success','');
         }else{
             return message(0,'error','');
