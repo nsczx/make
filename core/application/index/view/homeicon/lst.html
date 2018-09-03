@@ -1,0 +1,63 @@
+<div class="x-body">
+    <xblock>
+        <button onclick="x_admin_show('详情','{:tp_url('homeicon/add')}','1000','800')" class="layui-btn"   lay-filter="sreach">
+            <i class="layui-icon"></i>增加
+        </button>
+    </xblock>
+    <table class="layui-table layui-form">
+        <thead>
+        <tr>
+            <th width="10%">ID</th>
+            <th width="">名称</th>
+            <th width="">图标</th>
+            <th width="">修改时间</th>
+            <th width="5%">排序</th>
+            <th width="10%">状态</th>
+            <th width="20%">操作</th>
+        </thead>
+        {foreach $res as $v}
+        <tbody >
+
+        <tr >
+            <td>{$v.id}</td>
+            <td>{$v.title}</td>
+            <td><img src="__STATIC__/{$v.img_url}" alt="" width="50px" height="50px"/></td>
+            <td>{$v.update_time|date="Y-m-d H:i",###}</td>
+            <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
+            <td>
+                <input type="checkbox" name="statuc"  attr-id="{$v.id}" lay-text="开启|停用"  value="{$v.status}" {if $v.status == 1} checked="" {/if} lay-skin="switch" lay-filter="status" class="statuss">
+            </td>
+            <td class="td-manage">
+                <button class="layui-btn layui-btn layui-btn-xs"  onclick="x_admin_show('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
+                <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
+            </td>
+        </tr>
+
+        </tbody>
+        {/foreach}
+    </table>
+</div>
+
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        var layer = layui.layer;
+        form.on('switch(status)', function(data){
+            var data = {
+                'status' :data.value,
+                'id' : $(this).attr("attr-id")
+            };
+  
+            return;
+            var success = function( res ){
+                if(res.code == 1){
+                    layer.msg('更新成功',{time:1000});
+                }else{
+                    layer.msg('更新失败',{time:1000});
+                }
+            };
+            app.ajaxRequest("{:tp_url('homeicon/change_status')}",'get',data,'',success);
+        });
+    });
+
+</script>

@@ -2,21 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e53c7104-f936-4982-9ddb-3107c75cf318" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/controller/Scenic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/model/Scenic.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/view/Scenic/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/view/Scenic/lst.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/controller/Banner.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/controller/Cardpas.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/model/Banner.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/model/Clubcard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/view/banner/add.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/view/banner/edit.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/view/banner/lst.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/application/index/view/line/edit.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/1d317cdbfd9234f35af15783a3f9d9ee.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/4269d41954accaa4d35b2334036a5617.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/677598c44853e2fec6df5b1e76c1473d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/741d0e5338465295b74cd1ac926a642b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/7be5e108c8d04a47bc1a5887da090430.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/8a13f60fb0d647b288f2990312d47312.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/b71bca0930d8276ce1ed994e4ec2b742.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/bde918b5aeef0c2e0ef4e8c4dc72209d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/c45a6bc1889d29fdc9394fd7637d270f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/db7c2eef04330e329f4ebbbbb9b3b0ad.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/runtime/temp/fc981696d21d66480ff9cf0496b7482c.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/config.php" afterPath="$PROJECT_DIR$/core/application/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/controller/Appointment.php" afterPath="$PROJECT_DIR$/core/application/index/controller/Appointment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/common.php" afterPath="$PROJECT_DIR$/core/application/common.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/config.php" afterPath="$PROJECT_DIR$/core/application/index/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/controller/Base.php" afterPath="$PROJECT_DIR$/core/application/index/controller/Base.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/model/Appointment.php" afterPath="$PROJECT_DIR$/core/application/index/model/Appointment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/view/appointment/lst.html" afterPath="$PROJECT_DIR$/core/application/index/view/appointment/lst.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/controller/Clubcard.php" afterPath="$PROJECT_DIR$/core/application/index/controller/Clubcard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/view/common/layout.html" afterPath="$PROJECT_DIR$/core/application/index/view/common/layout.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/application/index/view/common/menu.html" afterPath="$PROJECT_DIR$/core/application/index/view/common/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/runtime/temp/741d0e5338465295b74cd1ac926a642b.php" afterPath="$PROJECT_DIR$/core/runtime/temp/741d0e5338465295b74cd1ac926a642b.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/runtime/temp/7be5e108c8d04a47bc1a5887da090430.php" afterPath="$PROJECT_DIR$/core/runtime/temp/7be5e108c8d04a47bc1a5887da090430.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/runtime/temp/8a13f60fb0d647b288f2990312d47312.php" afterPath="$PROJECT_DIR$/core/runtime/temp/8a13f60fb0d647b288f2990312d47312.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/runtime/temp/b71bca0930d8276ce1ed994e4ec2b742.php" afterPath="$PROJECT_DIR$/core/runtime/temp/b71bca0930d8276ce1ed994e4ec2b742.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/application/index/controller/Scenic.php" afterPath="$PROJECT_DIR$/core/application/index/controller/Line.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/application/index/model/Scenic.php" afterPath="$PROJECT_DIR$/core/application/index/model/Line.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/application/index/view/Scenic/add.html" afterPath="$PROJECT_DIR$/core/application/index/view/line/add.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/application/index/view/Scenic/lst.html" afterPath="$PROJECT_DIR$/core/application/index/view/line/lst.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,66 +43,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Scenic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/application/index/controller/Scenic.php">
+      <file leaf-file-name="Cardpas.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/application/index/controller/Cardpas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+            <state relative-caret-position="297">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Scenic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/application/index/model/Scenic.php">
+      <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/application/index/view/common/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/application/index/view/Scenic/add.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="647" column="17" lean-forward="true" selection-start-line="647" selection-start-column="17" selection-end-line="647" selection-end-column="17" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#4211#4678#0" expanded="false" />
-                <element signature="e#4773#5465#0" expanded="false" />
-                <element signature="e#6066#8076#0" expanded="false" />
-                <element signature="e#9078#9579#0" expanded="false" />
-                <element signature="e#9632#9684#0" expanded="false" />
-                <element signature="e#9876#9935#0" expanded="false" />
-                <element signature="e#10013#15529#0" expanded="false" />
-                <element signature="e#15596#15808#0" expanded="false" />
-                <element signature="e#15853#16415#0" expanded="false" />
-                <element signature="e#16453#17409#0" expanded="false" />
-                <element signature="e#16535#16676#0" expanded="false" />
-                <element signature="e#16709#16973#0" expanded="false" />
-                <element signature="e#17448#19735#0" expanded="false" />
-                <element signature="e#17520#17567#0" expanded="false" />
-                <element signature="e#20180#20459#0" expanded="false" />
-                <element signature="e#20515#20873#0" expanded="false" />
-                <element signature="e#20931#21189#0" expanded="false" />
-                <element signature="e#21241#21694#0" expanded="false" />
-                <element signature="e#21746#22020#0" expanded="false" />
-                <element signature="e#22067#22472#0" expanded="false" />
-                <element signature="e#22528#22577#0" expanded="false" />
-                <element signature="e#22635#22683#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Base.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/application/index/controller/Base.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state relative-caret-position="533">
+              <caret line="90" column="28" lean-forward="true" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -127,6 +97,9 @@
       <find>fileSingleSizeLimit</find>
       <find>file</find>
       <find>name=&quot;file&quot;</find>
+      <find>member_change</find>
+      <find>status</find>
+      <find>statuc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,17 +117,13 @@
         <option value="$PROJECT_DIR$/../../../tp/application/index/controller/Index.php" />
         <option value="$PROJECT_DIR$/core/application/index/view/user/datum.html" />
         <option value="$PROJECT_DIR$/core/application/index/view/common/head.html" />
-        <option value="$PROJECT_DIR$/core/application/index/view/common/layout.html" />
-        <option value="$PROJECT_DIR$/core/public/static/index/js/common.js" />
         <option value="$PROJECT_DIR$/core/application/index/view/user/del_list.html" />
-        <option value="$PROJECT_DIR$/core/application/index/controller/Clubcard.php" />
         <option value="$PROJECT_DIR$/core/application/index/model/Base.php" />
         <option value="$PROJECT_DIR$/core/application/index/view/user/edit.html" />
         <option value="$PROJECT_DIR$/core/application/index/model/User.php" />
         <option value="$PROJECT_DIR$/core/application/index/controller/User.php" />
         <option value="$PROJECT_DIR$/core/application/index/view/appointment/edit.html" />
         <option value="$PROJECT_DIR$/core/application/index/view/appointment/datum.html" />
-        <option value="$PROJECT_DIR$/core/application/common.php" />
         <option value="$PROJECT_DIR$/core/application/index/view/appointment/del_list.html" />
         <option value="$PROJECT_DIR$/core/application/index/view/user/lst.html" />
         <option value="$PROJECT_DIR$/core/application/index/controller/Appointment.php" />
@@ -162,12 +131,32 @@
         <option value="$PROJECT_DIR$/core/application/index/view/appointment/lst.html" />
         <option value="$PROJECT_DIR$/core/application/index/model/Appointment.php" />
         <option value="$PROJECT_DIR$/core/application/index/controller/Sceni.php" />
-        <option value="$PROJECT_DIR$/core/application/index/controller/Base.php" />
-        <option value="$PROJECT_DIR$/core/application/index/view/common/menu.html" />
         <option value="$PROJECT_DIR$/core/application/index/view/Scenic/lst.html" />
         <option value="$PROJECT_DIR$/core/application/index/controller/Scenic.php" />
         <option value="$PROJECT_DIR$/core/application/index/model/Scenic.php" />
         <option value="$PROJECT_DIR$/core/application/index/view/Scenic/add.html" />
+        <option value="$PROJECT_DIR$/core/application/index/config.php" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Clubcard.php" />
+        <option value="$PROJECT_DIR$/core/application/index/model/Clubcard.php" />
+        <option value="$PROJECT_DIR$/core/public/static/index/js/common.js" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Homeico.php" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Homeicon.php" />
+        <option value="$PROJECT_DIR$/core/application/index/view/line/edit.html" />
+        <option value="$PROJECT_DIR$/core/application/index/view/common/layout.html" />
+        <option value="$PROJECT_DIR$/core/application/index/view/clubcard/lst.html" />
+        <option value="$PROJECT_DIR$/core/application/index/model/Line.php" />
+        <option value="$PROJECT_DIR$/core/application/index/view/banner/add.html" />
+        <option value="$PROJECT_DIR$/core/application/index/view/banner/edit.html" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Base.php" />
+        <option value="$PROJECT_DIR$/core/application/index/model/Banner.php" />
+        <option value="$PROJECT_DIR$/core/application/common.php" />
+        <option value="$PROJECT_DIR$/core/application/index/view/banner/lst.html" />
+        <option value="$PROJECT_DIR$/core/application/index/view/line/lst.html" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Line.php" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Cardpassword.php" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Banner.php" />
+        <option value="$PROJECT_DIR$/core/application/index/view/common/menu.html" />
+        <option value="$PROJECT_DIR$/core/application/index/controller/Cardpas.php" />
       </list>
     </option>
   </component>
@@ -181,8 +170,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
-    <option name="height" value="876" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -202,8 +191,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -244,6 +231,72 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="make_xyx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="make_xyx" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="make_xyx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="make_xyx" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="make_xyx" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="make_xyx" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -322,7 +375,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="appointment" />
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -380,6 +433,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -492,18 +547,18 @@
       <workItem from="1535505188404" duration="15026000" />
       <workItem from="1535591813861" duration="24848000" />
       <workItem from="1535624512705" duration="52000" />
-      <workItem from="1535677846076" duration="20595000" />
+      <workItem from="1535677846076" duration="20960000" />
+      <workItem from="1535936887220" duration="30523000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109926000" />
+    <option name="totallyTimeSpent" value="140814000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21180555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -533,7 +588,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -563,27 +618,23 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/core/application/index/view/Scenic/add.html</url>
+          <url>file://$PROJECT_DIR$/core/application/index/view/line/add.html</url>
           <line>70</line>
-          <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/core/application/index/view/Scenic/add.html</url>
+          <url>file://$PROJECT_DIR$/core/application/index/view/line/add.html</url>
           <line>157</line>
-          <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/core/application/index/view/Scenic/add.html</url>
+          <url>file://$PROJECT_DIR$/core/application/index/view/line/add.html</url>
           <line>233</line>
-          <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/core/application/index/view/Scenic/add.html</url>
+          <url>file://$PROJECT_DIR$/core/application/index/view/line/add.html</url>
           <line>466</line>
-          <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -591,98 +642,17 @@
           <line>15</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/core/application/index/model/Appointment.php</url>
+          <line>94</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/user/add.html" />
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/user/lst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="50" column="44" lean-forward="false" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#xblock#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#3165#3927#0" expanded="false" />
-            <element signature="e#3985#6470#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/public/static/index/js/xadmin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4536">
-          <caret line="168" column="21" lean-forward="false" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/user/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/thinkphp/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7236">
-          <caret line="268" column="1" lean-forward="true" selection-start-line="268" selection-start-column="1" selection-end-line="268" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/thinkphp/helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="265" column="5" lean-forward="true" selection-start-line="265" selection-start-column="5" selection-end-line="265" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/public/static/index/lib/layui/lay/modules/laydate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/common.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -741,21 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Clubcard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/application/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -769,13 +724,6 @@
         <state relative-caret-position="216">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -830,73 +778,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/common.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/public/static/index/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="38" column="42" lean-forward="true" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/model/Appointment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="e#390#580#0#PHP" expanded="false" />
-            <element signature="e#601#756#0#PHP" expanded="false" />
-            <element signature="e#775#1080#0#PHP" expanded="false" />
-            <element signature="e#1562#2159#0#PHP" expanded="false" />
-            <element signature="e#2176#2564#0#PHP" expanded="false" />
-            <element signature="e#2583#3153#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Sceni.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/appointment/del_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="104" selection-end-column="5" />
-          <folding>
-            <element signature="e#2654#3106#0" expanded="false" />
-            <element signature="e#3836#4380#0" expanded="false" />
-            <element signature="e#4414#5315#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/Scenic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Sceni.php" />
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/Scenic.php" />
     <entry file="file://$PROJECT_DIR$/core/application/index/view/user/lst.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -909,72 +792,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/appointment/lst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="49" column="50" lean-forward="false" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="50" />
-          <folding>
-            <element signature="e#2774#3287#0" expanded="false" />
-            <element signature="e#5193#5850#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/index/lst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/public/static/index/lib/webuploader/webuploader.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7695">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/Scenic/lst.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Appointment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-          <folding>
-            <element signature="e#38#51#0#PHP" expanded="true" />
-            <element signature="e#371#568#0#PHP" expanded="false" />
-            <element signature="e#574#929#0#PHP" expanded="false" />
-            <element signature="e#1180#1385#0#PHP" expanded="false" />
-            <element signature="e#1404#1609#0#PHP" expanded="false" />
-            <element signature="e#1615#1846#0#PHP" expanded="false" />
-            <element signature="e#1925#2075#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -993,37 +814,166 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Scenic.php">
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/appointment/del_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        <state relative-caret-position="-21">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="104" selection-end-column="5" />
+          <folding>
+            <element signature="e#2654#3106#0" expanded="false" />
+            <element signature="e#3836#4380#0" expanded="false" />
+            <element signature="e#4414#5315#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/model/Scenic.php">
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Clubcard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="479">
+          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding>
+            <element signature="e#6#36#0#PHP" expanded="false" />
+            <element signature="e#70#88#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Homeicon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/model/Homeicon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/application/index/view/appointment/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="137" column="22" lean-forward="true" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+        <state relative-caret-position="434">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="136" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/application/index/view/Scenic/add.html">
+    <entry file="file://$PROJECT_DIR$/core/public/static/index/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="647" column="17" lean-forward="true" selection-start-line="647" selection-start-column="17" selection-end-line="647" selection-end-column="17" />
+        <state relative-caret-position="-11676">
+          <caret line="79" column="11" lean-forward="false" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/index/lst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/model/Appointment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="107" selection-end-column="9" />
+          <folding>
+            <element signature="e#390#580#0#PHP" expanded="false" />
+            <element signature="e#601#756#0#PHP" expanded="false" />
+            <element signature="e#775#1080#0#PHP" expanded="false" />
+            <element signature="e#1562#2159#0#PHP" expanded="false" />
+            <element signature="e#2583#3153#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/model/Clubcard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Appointment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="73" selection-end-column="5" />
+          <folding>
+            <element signature="e#371#568#0#PHP" expanded="false" />
+            <element signature="e#574#929#0#PHP" expanded="false" />
+            <element signature="e#1180#1385#0#PHP" expanded="false" />
+            <element signature="e#1615#1846#0#PHP" expanded="false" />
+            <element signature="e#1925#2075#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/clubcard/lst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/appointment/lst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="69" column="2" lean-forward="false" selection-start-line="69" selection-start-column="2" selection-end-line="84" selection-end-column="5" />
+          <folding>
+            <element signature="e#2774#3287#0" expanded="false" />
+            <element signature="e#5193#5850#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/line/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2948#22792#0" expanded="false" />
             <element signature="e#4211#4678#0" expanded="false" />
             <element signature="e#4773#5465#0" expanded="false" />
             <element signature="e#6066#8076#0" expanded="false" />
@@ -1047,6 +997,126 @@
             <element signature="e#22528#22577#0" expanded="false" />
             <element signature="e#22635#22683#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/line/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/banner/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="115" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="137" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/model/Line.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#38#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/banner/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="128" column="60" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#4;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/banner/lst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="91" column="6" lean-forward="true" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Line.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#128#146#0#PHP" expanded="true" />
+            <element signature="e#720#1076#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/line/lst.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1107">
+          <caret line="86" column="55" lean-forward="false" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/model/Banner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding>
+            <element signature="e#927#1486#0#PHP" expanded="false" />
+            <element signature="e#1504#2639#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Banner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#39#52#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/view/common/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="90" column="28" lean-forward="true" selection-start-line="90" selection-start-column="28" selection-end-line="90" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/application/index/controller/Cardpas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

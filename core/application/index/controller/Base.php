@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+use think\Db;
 
 class Base extends Controller
 {
@@ -16,19 +17,17 @@ class Base extends Controller
 
     public function uploadimage()
     {
-        // 获取表单上传文件 例如上传了001.jpg
+
         $files = request()->file('images');
-        // 移动到框架应用根目录/public/uploads/ 目录下
         foreach($files as $file){
-            // 移动到框架应用根目录/public/uploads/ 目录下
-            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            $info = $file->move(ROOT_PATH . 'public' . DS .'static'.DS. 'uploads');
             if($info){
                 return  message(1,'success','uploads'.DS.$info->getSaveName());
             }else{
                 return  message(0,'error','uploads'.DS.$info->getSaveName());
             }
         }
-
-
     }
+
+
 }

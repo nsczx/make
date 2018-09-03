@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:101:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\scenic\lst.html";i:1535702808;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535702674;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:99:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\line\lst.html";i:1535972320;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535959333;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535961986;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,12 +67,6 @@
 
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo tp_url('clubcard/index'); ?>">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员卡管理</cite>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li>
@@ -104,7 +98,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="<?php echo tp_url('scenic/lst'); ?>">
+                        <a href="<?php echo tp_url('line/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>分类列表</cite>
                         </a>
@@ -114,47 +108,28 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>轮播图</cite>
+                    <cite>其他设置</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="<?php echo tp_url('index/lst'); ?>">
+                        <a href="<?php echo tp_url('Clubcard/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>轮播图列表</cite>
+                            <cite>秀程卡设置</cite>
                         </a>
                     </li >
-                </ul>
-            </li>
-            <li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe723;</i>
-                    <cite>订单管理</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
                     <li>
-                        <a _href="order-list.html">
+                        <a href="<?php echo tp_url('homeicon/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>订单列表</cite>
+                            <cite>首页图标设置</cite>
                         </a>
                     </li >
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe6b4;</i>
-                    <cite>预约景点</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
                     <li>
-                        <a _href="unicode.html">
+                        <a href="<?php echo tp_url('Banner/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>景点列表</cite>
+                            <cite>轮播图设置</cite>
                         </a>
-                    </li>
+                    </li >
                 </ul>
             </li>
         </ul>
@@ -162,7 +137,7 @@
 </div>
 
 
-    <div class="page-content">
+    <div class="page-content" style="height:100%;">
         <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
@@ -172,9 +147,9 @@
                     </div>
                     <div class="x-body">
     <xblock>
-    <button class="layui-btn layui-btn-radius" onclick="x_admin_show('添加分类','<?php echo tp_url('scenic/add'); ?>',1000,700)">添加分类</button>
+    <button class="layui-btn layui-btn-radius" onclick="x_admin_show('添加分类','<?php echo tp_url('line/add'); ?>',1000,700)">添加分类</button>
     </xblock>
-    <table class="layui-table">
+    <table class="layui-table layui-form">
     <thead>
     <tr>
 
@@ -182,36 +157,84 @@
         <th>标题</th>
         <th>图片</th>
         <th>添加时间</th>
+        <th width="5%">排序</th>
         <th>状态</th>
         <th>操作</th>
     </thead>
     <tbody>
-
+    <?php foreach($res as $v): ?>
     <tr>
-        <td>id</td>
-        <td>标题</td>
-        <td><img alt="" width="50px" height="50px" src="https://bpic.588ku.com/illus_water_img/18/08/22/1cb29a2217107caad949763cf111e9fa.jpg!/watermark/url/L3dhdGVyL3dhdGVyX2JhY2tfNDAwXzIwMC5wbmc=/repeat/true" ></td>
-        <td>添加时间</td>
-
-        <td class="td-status">状态</td>
+        <td><?php echo $v['id']; ?></td>
+        <td><?php echo $v['title']; ?></td>
+        <td><img alt="" width="50px" height="60px" src="/we7/addons/make_xyx/core/public/static/<?php echo $v['img_url']; ?>" ></td>
+        <td><?php echo date("Y-m-d   H:i",$v['create_time']); ?></td>
+        <td><input type="text"  value="<?php echo $v['sort']; ?>" name="sort" attr-id="<?php echo $v['id']; ?>" size="3px"></td>
+        <td>
+            <input type="checkbox" name="statuc"  attr-id="<?php echo $v['id']; ?>" lay-text="开启|停用"  value="<?php echo $v['status']; ?>"
+                   <?php if($v['status'] == 1): ?> checked="" <?php endif; ?> lay-skin="switch" lay-filter="status" >
+        </td>
         <td class="td-manage">
-            <a onclick="member_change(this)" href="javascript:;"  title="点击更改状态">
-                <i class="layui-icon">&#xe601;</i>
-            </a>
-            <a  onclick="x_admin_show('详情','<?php echo tp_url('user/datum'); ?>','800','500')" href="javascript:;"  title="用户详情">
-                <i class="layui-icon">&#xe63c;</i>
-            </a>
-            <a title="编辑"  onclick="x_admin_show('编辑','<?php echo tp_url('user/edit'); ?>','800','500')" href="javascript:;">
+            <a title="编辑"  onclick="x_admin_show('编辑','<?php echo tp_url('line/edit',['id'=>$v['id']]); ?>','1000','800')" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
             </a>
-            <a title="删除" onclick="member_del(this)" href="javascript:;">
+            <a title="删除" onclick="line_del(this,<?php echo $v['id']; ?>)" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
             </a>
         </td>
     </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>
 </div>
+<script>
+    function line_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
+                }
+            };
+            var data = {id:id}
+            app.ajaxRequest("<?php echo tp_url('line/del_line'); ?>",'post',data,'',success);
+        })
+    };
+    layui.use('form',function(){
+        var form = layui.form;
+        form.on('switch(status)', function(data){
+            var data = {
+                'status' :data.value,
+                'id' : $(this).attr("attr-id")
+            };
+
+            var success = function( res ){
+                if(res.code == 1){
+                    layer.msg('更新成功',{time:1000});
+                }else{
+                    layer.msg('更新失败',{time:1000});
+                }
+            };
+            app.ajaxRequest("<?php echo tp_url('line/change_status'); ?>",'get',data,'',success);
+        });
+    })
+    $('input[name=sort]').blur(function(){
+        var sort = $(this).val();
+        var success = function( res ){
+            if(res.code == 1){
+                layer.msg('更新成功',{time:1000});
+            }
+        };
+        if(sort){
+            var data = {
+                'id' : $(this).attr('attr-id'),
+                'sort':sort
+            };
+            app.ajaxRequest("<?php echo tp_url('line/change_sort'); ?>",'get',data,'',success);
+        }
+    })
+</script>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:111:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\appointment\del_list.html";i:1535623245;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:111:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\appointment\del_list.html";i:1535623245;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535959333;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535961986;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,12 +67,6 @@
 
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo tp_url('clubcard/index'); ?>">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员卡管理</cite>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li>
@@ -99,47 +93,43 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>轮播图</cite>
+                    <cite>景点管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="<?php echo tp_url('index/lst'); ?>">
+                        <a href="<?php echo tp_url('line/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>轮播图列表</cite>
+                            <cite>分类列表</cite>
                         </a>
                     </li >
                 </ul>
             </li>
-            <li>
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>订单管理</cite>
+                    <cite>其他设置</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="order-list.html">
+                        <a href="<?php echo tp_url('Clubcard/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>订单列表</cite>
+                            <cite>秀程卡设置</cite>
                         </a>
                     </li >
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe6b4;</i>
-                    <cite>预约景点</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
                     <li>
-                        <a _href="unicode.html">
+                        <a href="<?php echo tp_url('homeicon/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>景点列表</cite>
+                            <cite>首页图标设置</cite>
                         </a>
-                    </li>
+                    </li >
+                    <li>
+                        <a href="<?php echo tp_url('Banner/lst'); ?>">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>轮播图设置</cite>
+                        </a>
+                    </li >
                 </ul>
             </li>
         </ul>
@@ -147,7 +137,7 @@
 </div>
 
 
-    <div class="page-content">
+    <div class="page-content" style="height:100%;">
         <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">

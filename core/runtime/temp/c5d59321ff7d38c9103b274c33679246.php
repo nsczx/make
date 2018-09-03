@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:102:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\index\index.html";i:1535301369;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535533633;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535619620;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:101:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\banner\lst.html";i:1535971908;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\layout.html";i:1535959333;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\head.html";i:1535533612;s:92:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\menu.html";i:1535973614;s:94:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\application\index\view\common\footer.html";i:1535438089;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,12 +67,6 @@
 
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo tp_url('clubcard/index'); ?>">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员卡管理</cite>
-                        </a>
-                    </li>
                 </ul>
             </li>
             <li>
@@ -99,47 +93,49 @@
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>轮播图</cite>
+                    <cite>景点管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="<?php echo tp_url('index/lst'); ?>">
+                        <a href="<?php echo tp_url('line/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>轮播图列表</cite>
+                            <cite>分类列表</cite>
                         </a>
                     </li >
                 </ul>
             </li>
-            <li>
             <li>
                 <a href="javascript:;">
                     <i class="iconfont">&#xe723;</i>
-                    <cite>订单管理</cite>
+                    <cite>其他设置</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="order-list.html">
+                        <a href="<?php echo tp_url('Clubcard/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>订单列表</cite>
+                            <cite>秀程卡设置</cite>
                         </a>
                     </li >
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="iconfont">&#xe6b4;</i>
-                    <cite>预约景点</cite>
-                    <i class="iconfont nav_right">&#xe697;</i>
-                </a>
-                <ul class="sub-menu">
                     <li>
-                        <a _href="unicode.html">
+                        <a href="<?php echo tp_url('homeicon/lst'); ?>">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>景点列表</cite>
+                            <cite>首页图标设置</cite>
                         </a>
-                    </li>
+                    </li >
+                    <li>
+                        <a href="<?php echo tp_url('Banner/lst'); ?>">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>轮播图设置</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a href="<?php echo tp_url('cardpas/card_lst'); ?>">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>卡密生成</cite>
+                        </a>
+                    </li >
                 </ul>
             </li>
         </ul>
@@ -147,7 +143,7 @@
 </div>
 
 
-    <div class="page-content">
+    <div class="page-content" style="height:100%;">
         <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
@@ -155,9 +151,101 @@
                         <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
                             <i class="layui-icon" style="line-height:30px">ဂ</i></a>
                     </div>
-                    
+                    <div class="x-body">
+    <xblock>
+        <button class="layui-btn layui-btn-radius" onclick="x_admin_show('添加分类','<?php echo tp_url('banner/add'); ?>',1200,800)">添加分类</button>
+    </xblock>
+    <table class="layui-table layui-form">
+        <thead>
+        <tr>
 
-2342342342
+            <th>ID</th>
+            <th>标题</th>
+            <th>轮播图片</th>
+            <th width="20%">链接</th>
+            <th>添加时间</th>
+            <th width="5%">排序</th>
+            <th>状态</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+        <?php foreach($res as $v): ?>
+        <tr>
+            <td><?php echo $v['id']; ?></td>
+            <td><?php echo $v['title']; ?></td>
+            <td><img alt="" width="50px" height="60px" src="/we7/addons/make_xyx/core/public/static/<?php echo $v['img_url']; ?>" ></td>
+            <td><a href="<?php echo $v['href']; ?>"><?php echo $v['href']; ?></a></td>
+            <td><?php echo date("Y-m-d   H:i",$v['create_time']); ?></td>
+            <td><input type="text"  value="<?php echo $v['sort']; ?>" name="sort" attr-id="<?php echo $v['id']; ?>" size="3px"></td>
+            <td>
+                <input type="checkbox" name="status"  attr-id="<?php echo $v['id']; ?>" lay-text="开启|停用"  value="<?php echo $v['status']; ?>"
+                       <?php if($v['status'] == 1): ?> checked="" <?php endif; ?> lay-skin="switch" lay-filter="status" >
+            </td>
+            <td class="td-manage">
+                <a title="编辑"  onclick="x_admin_show('编辑','<?php echo tp_url('banner/edit',['id'=>$v['id']]); ?>','1000','800')" href="javascript:;">
+                    <i class="layui-icon">&#xe642;</i>
+                </a>
+                <a title="删除" onclick="banner_del(this,<?php echo $v['id']; ?>)" href="javascript:;">
+                    <i class="layui-icon">&#xe640;</i>
+                </a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<script>
+    function banner_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
+                }
+            };
+            var data = {id:id}
+            app.ajaxRequest("<?php echo tp_url('banner/del_banner'); ?>",'post',data,'',success);
+        })
+    };
+    layui.use('form',function(){
+        var form = layui.form;
+        form.on('switch(status)', function(data){
+            var data = {
+                'status' :data.value,
+                'id' : $(this).attr("attr-id")
+            };
+
+            var success = function( res ){
+                if(res.code == 1){
+                    layer.msg('更新成功',{time:1000});
+                }else{
+                    layer.msg('更新失败',{time:1000});
+                }
+            };
+            app.ajaxRequest("<?php echo tp_url('banner/change_status'); ?>",'get',data,'',success);
+        });
+    })
+
+    $('input[name=sort]').blur(function(){
+        var sort = $(this).val();
+        var success = function( res ){
+            if(res.code == 1){
+                layer.msg('更新成功',{time:1000});
+            }
+        };
+        if(sort){
+            var data = {
+                'id' : $(this).attr('attr-id'),
+                'sort':sort
+            };
+            app.ajaxRequest("<?php echo tp_url('banner/change_sort'); ?>",'get',data,'',success);
+        }
+    })
+
+
+</script>
                 </div>
             </div>
         </div>

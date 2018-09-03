@@ -1,0 +1,90 @@
+<div class="x-body">
+    <xblock>
+    <button class="layui-btn layui-btn-radius" onclick="x_admin_show('添加分类','{:tp_url('line/add')}',1000,700)">添加分类</button>
+    </xblock>
+    <table class="layui-table layui-form">
+    <thead>
+    <tr>
+
+        <th>ID</th>
+        <th>标题</th>
+        <th>图片</th>
+        <th>添加时间</th>
+        <th width="5%">排序</th>
+        <th>状态</th>
+        <th>操作</th>
+    </thead>
+    <tbody>
+    {foreach $res as $v}
+    <tr>
+        <td>{$v.id}</td>
+        <td>{$v.title}</td>
+        <td><img alt="" width="50px" height="60px" src="__STATIC__/{$v.img_url}" ></td>
+        <td>{$v.create_time|date="Y-m-d   H:i",###}</td>
+        <td><input type="text"  value="{$v.sort}" name="sort" attr-id="{$v.id}" size="3px"></td>
+        <td>
+            <input type="checkbox" name="statuc"  attr-id="{$v.id}" lay-text="开启|停用"  value="{$v.status}"
+                   {if $v.status == 1} checked="" {/if} lay-skin="switch" lay-filter="status" >
+        </td>
+        <td class="td-manage">
+            <a title="编辑"  onclick="x_admin_show('编辑','{:tp_url('line/edit',['id'=>$v.id])}','1000','800')" href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
+            </a>
+            <a title="删除" onclick="line_del(this,{$v.id})" href="javascript:;">
+                <i class="layui-icon">&#xe640;</i>
+            </a>
+        </td>
+    </tr>
+    {/foreach}
+    </tbody>
+</table>
+</div>
+<script>
+    function line_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            var success = function(res){
+                if(res.code == 1){
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+                }else{
+                    layer.msg('删除失败!',{icon:1,time:1000});
+                }
+            };
+            var data = {id:id}
+            app.ajaxRequest("{:tp_url('line/del_line')}",'post',data,'',success);
+        })
+    };
+    layui.use('form',function(){
+        var form = layui.form;
+        form.on('switch(status)', function(data){
+            var data = {
+                'status' :data.value,
+                'id' : $(this).attr("attr-id")
+            };
+
+            var success = function( res ){
+                if(res.code == 1){
+                    layer.msg('更新成功',{time:1000});
+                }else{
+                    layer.msg('更新失败',{time:1000});
+                }
+            };
+            app.ajaxRequest("{:tp_url('line/change_status')}",'get',data,'',success);
+        });
+    })
+    $('input[name=sort]').blur(function(){
+        var sort = $(this).val();
+        var success = function( res ){
+            if(res.code == 1){
+                layer.msg('更新成功',{time:1000});
+            }
+        };
+        if(sort){
+            var data = {
+                'id' : $(this).attr('attr-id'),
+                'sort':sort
+            };
+            app.ajaxRequest("{:tp_url('line/change_sort')}",'get',data,'',success);
+        }
+    })
+</script>

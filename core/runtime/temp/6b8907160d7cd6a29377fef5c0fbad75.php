@@ -1,4 +1,5 @@
-{__NOLAYOUT__}
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:99:"F:\phpstudy\PHPTutorial\WWW\we7\addons\make_xyx\core\public/../application/index\view\line\add.html";i:1535937209;}*/ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>layout 后台大布局 - Layui</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="__STATIC__/index/css/font.css">
-    <link rel="stylesheet" href="__STATIC__/index/css/common.css" />
-    <link rel="stylesheet" href="__STATIC__/index/lib/webuploader/webuploader.css" />
-    <link rel="stylesheet" href="__STATIC__/index/css/xadmin.css">
-    <script type="text/javascript" src="__STATIC__/index/lib/jquery/jquery.min.js"></script>
-    <script src="__STATIC__/index/lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="__STATIC__/index/js/xadmin.js"></script>
-    <script type="text/javascript" src="__STATIC__/index/js/common.js"></script>
-    <script type="text/javascript" src="__STATIC__/index/lib/webuploader/webuploader.min.js"></script>
+    <link rel="stylesheet" href="/we7/addons/make_xyx/core/public/static/index/css/font.css">
+    <link rel="stylesheet" href="/we7/addons/make_xyx/core/public/static/index/css/common.css" />
+    <link rel="stylesheet" href="/we7/addons/make_xyx/core/public/static/index/lib/webuploader/webuploader.css" />
+    <link rel="stylesheet" href="/we7/addons/make_xyx/core/public/static/index/css/xadmin.css">
+    <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/lib/jquery/jquery.min.js"></script>
+    <script src="/we7/addons/make_xyx/core/public/static/index/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/js/xadmin.js"></script>
+    <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/js/common.js"></script>
+    <script type="text/javascript" src="/we7/addons/make_xyx/core/public/static/index/lib/webuploader/webuploader.min.js"></script>
     <style>
         .label-width{
             width:90px;
@@ -217,11 +218,11 @@
                 fileVal:'images[]',
                 dnd: '#dndArea',
                 paste: '#uploader',
-                swf: '__STATIC__/index/lib/webuploader/Uploader.swf',
+                swf: '/we7/addons/make_xyx/core/public/static/index/lib/webuploader/Uploader.swf',
                 chunked: false,
                 fileNumLimit:1,
                 chunkSize: 512 * 1024,
-                server: "{:tp_url('base/uploadimage')}",
+                server: "<?php echo tp_url('base/uploadimage'); ?>",
 
 
                 // 禁掉全局的拖拽功能。这样不会出现图片拖进页面的时候，把图片打开。
@@ -646,7 +647,7 @@
                         layer.msg("添加失败",{time:1000});
                     }
                 }
-                app.ajaxRequest("{:tp_url('scenic/add')}",'post',data,'',success);
+                app.ajaxRequest("<?php echo tp_url('line/add'); ?>",'post',data,'',success);
             }
             return false;
         });
